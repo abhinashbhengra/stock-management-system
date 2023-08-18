@@ -5,8 +5,7 @@ export async function GET() {
   // const { MongoClient } = require("mongodb");
 
   // Replace the uri string with your connection string.
-  const uri =
-    "mongodb+srv://abhinashbhengra170dx:l9abQOsXKfZHNLxu@cluster0.f4ibtv9.mongodb.net/";
+  const uri = process.env.MONGODB_URI;
 
   const client = new MongoClient(uri);
 
