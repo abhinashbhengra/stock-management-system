@@ -80,6 +80,14 @@ export default function Home() {
     router.refresh();
   };
 
+  const handleDelete = async (id) => {
+    const res = await fetch("/api/product", {
+      method: "DELETE",
+      body: JSON.stringify({ id }),
+    });
+    // console.log(await res.json());
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch("/api/product", {
@@ -179,6 +187,9 @@ export default function Home() {
                       <td className="border p-2">{item.quantity}</td>
                       <td className="border p-2">₹{item.price}</td>{" "}
                       {/* New Price cell */}
+                      <button onClick={() => handleDelete(item._id)}>
+                        Delete
+                      </button>
                     </tr>
                   ))}
               </tbody>
